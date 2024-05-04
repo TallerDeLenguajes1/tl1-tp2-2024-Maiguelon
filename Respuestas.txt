@@ -1,1 +1,2 @@
-Respuestas
+Cuando cambié de Opción_2 a main, se representó visualmente poniendo el main más salido, anteriormente estaba más salida la branch
+El merge se visualiza con una unión del main y el branch. Se puede ver como la historia, en que exisitieron en el pasado el main y una branch, pero ahora culmina en el main nuevamente.
