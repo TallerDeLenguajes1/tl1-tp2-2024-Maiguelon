@@ -16,9 +16,9 @@ char tipos[6][10]={"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 
 // Declaración de funciones
 void generarCompu(compu *compu);
-void mostrarCompus(compu *compu);
-void masAntigua(compu *compu);
-void masVeloz(compu *compu);
+void mostrarCompus(compu *compus, int cantidad);
+void masAntigua(compu *compus, int cantidad);
+void masVeloz(compu *compus, int cantidad);
 
 int main() {
     // preparo el tiempo
@@ -51,3 +51,40 @@ void generarCompu(compu *compu)
     strcpy(compu->tipo_cpu, tipos[cpu]);
 }
 
+void mostrarCompus(compu *compus, int cantidad)
+{
+    compu *ptrCompu = compus;
+
+    for (int i = 0; i < cantidad; i++) {
+        printf("Computadora %d: \n", i + 1);
+        printf("Velocidad: %d\n", ptrCompu->velocidad);
+        printf("Anio: %d\n", ptrCompu->anio);
+        printf("Cantidad: %d\n", ptrCompu->cantidad);
+        printf("CPU: %s\n", ptrCompu->tipo_cpu);
+
+        ptrCompu++;
+    }
+}
+
+void masAntigua(compu *compus, int cantidad)
+{
+    compu *ptrCompu = compus;
+    int antiguedad = 3000;
+    int indice;
+
+    for (int i = 0; i < cantidad; i++) {
+        if (ptrCompu->anio < antiguedad) {
+            antiguedad = ptrCompu->anio;
+            indice = i + 1;
+        }
+    }
+
+    ptrCompu = compus;
+
+    for (int i = 0; i < indice - 1; i++) {
+        ptrCompu++;
+    }
+
+    printf("La computadora mas Antiqua es: \n");
+    mostrarCompus(ptrCompu, 1);
+}
