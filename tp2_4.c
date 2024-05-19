@@ -69,22 +69,14 @@ void mostrarCompus(compu *compus, int cantidad)
 void masAntigua(compu *compus, int cantidad)
 {
     compu *ptrCompu = compus;
-    int antiguedad = 3000;
-    int indice;
+    compu *masAntiqua = compus;
 
     for (int i = 0; i < cantidad; i++) {
-        if (ptrCompu->anio < antiguedad) {
-            antiguedad = ptrCompu->anio;
-            indice = i + 1;
+        if (ptrCompu->anio < masAntiqua->anio) {
+            masAntiqua = ptrCompu;
         }
     }
 
-    ptrCompu = compus;
-
-    for (int i = 0; i < indice - 1; i++) {
-        ptrCompu++;
-    }
-
-    printf("La computadora mas Antiqua es: \n");
-    mostrarCompus(ptrCompu, 1);
+    printf("La computadora mas Antiqua es:\n");
+    mostrarCompus(masAntiqua, 1);
 }
